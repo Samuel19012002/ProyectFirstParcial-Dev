@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "Gestion de Cursos API",
+    "description": "Pruebas de los cinco endpoints obligatorios del proyecto.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5050"
+    }
+  ],
+  "item": [
+    {
+      "name": "Obtener todos los cursos",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/cursos"
+      }
+    },
+    {
+      "name": "Obtener un curso por id",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/cursos/1"
+      }
+    },
+    {
+      "name": "Agregar un curso",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Arquitectura de Software\",\n  \"docente\": \"Laura Ruiz\",\n  \"activo\": true\n}"
+        },
+        "url": "{{baseUrl}}/api/cursos"
+      }
+    },
+    {
+      "name": "Actualizar un curso",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nombre\": \"Desarrollo Web Avanzado\",\n  \"docente\": \"Ana Torres\",\n  \"activo\": true\n}"
+        },
+        "url": "{{baseUrl}}/api/cursos/1"
+      }
+    },
+    {
+      "name": "Eliminar un curso",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/cursos/2"
+      }
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+@GestionCursos.Api_HostAddress = http://localhost:5050
+
+GET {{GestionCursos.Api_HostAddress}}/api/cursos
+Accept: application/json
+
+###
+
+GET {{GestionCursos.Api_HostAddress}}/api/cursos/1
+Accept: application/json
+
+###
+
+POST {{GestionCursos.Api_HostAddress}}/api/cursos
+Content-Type: application/json
+
+{
+  "nombre": "Arquitectura de Software",
+  "docente": "Laura Ruiz",
+  "activo": true
+}
+
+###
+
+PUT {{GestionCursos.Api_HostAddress}}/api/cursos/1
+Content-Type: application/json
+
+{
+  "nombre": "Desarrollo Web Avanzado",
+  "docente": "Ana Torres",
+  "activo": true
+}
+
+###
+
+DELETE {{GestionCursos.Api_HostAddress}}/api/cursos/2

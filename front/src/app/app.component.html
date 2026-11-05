@@ -1,0 +1,21 @@
+<app-encabezado></app-encabezado>
+
+<main class="container py-5">
+  <div class="row g-4">
+    <div class="col-lg-4">
+      <app-formulario-curso
+        (cursoAgregado)="agregarCurso($event)">
+      </app-formulario-curso>
+    </div>
+
+    <div class="col-lg-8">
+      <app-lista-cursos
+        [cursos]="cursos"
+        (estadoCambiado)="cambiarEstado($event)"
+        (cursoEliminado)="eliminarCurso($event)">
+      </app-lista-cursos>
+    </div>
+  </div>
+</main>
+
+<app-pie-pagina></app-pie-pagina>

@@ -1,0 +1,47 @@
+<section class="card border-0 shadow-sm h-100">
+  <div class="card-body p-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="h4 mb-0">Cursos registrados</h2>
+      <span class="badge text-bg-primary">{{ cursos.length }} cursos</span>
+    </div>
+
+    <div *ngIf="cursos.length === 0" class="alert alert-info mb-0">
+      No hay cursos registrados.
+    </div>
+
+    <div *ngIf="cursos.length > 0" class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Id</th>
+            <th>Curso</th>
+            <th>Docente</th>
+            <th>Estado</th>
+            <th class="text-end">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let curso of cursos">
+            <td>{{ curso.id }}</td>
+            <td class="fw-semibold">{{ curso.nombre }}</td>
+            <td>{{ curso.docente }}</td>
+            <td>
+              <span *ngIf="curso.activo" class="badge text-bg-success">Activo</span>
+              <span *ngIf="!curso.activo" class="badge text-bg-secondary">Inactivo</span>
+            </td>
+            <td class="text-end text-nowrap">
+              <button class="btn btn-sm btn-outline-primary me-2" type="button"
+                (click)="estadoCambiado.emit(curso.id)">
+                Cambiar estado
+              </button>
+              <button class="btn btn-sm btn-outline-danger" type="button"
+                (click)="cursoEliminado.emit(curso.id)">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

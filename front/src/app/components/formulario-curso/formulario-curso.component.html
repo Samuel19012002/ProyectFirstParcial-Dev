@@ -1,0 +1,29 @@
+<section class="card border-0 shadow-sm h-100">
+  <div class="card-body p-4">
+    <h2 class="h4 mb-4">Registrar curso</h2>
+
+    <form #cursoForm="ngForm" (ngSubmit)="guardar()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre del curso</label>
+        <input id="nombre" name="nombre" class="form-control" type="text"
+          [(ngModel)]="nombre" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="docente" class="form-label">Docente</label>
+        <input id="docente" name="docente" class="form-control" type="text"
+          [(ngModel)]="docente" required>
+      </div>
+
+      <div class="form-check form-switch mb-4">
+        <input id="activo" name="activo" class="form-check-input" type="checkbox"
+          [(ngModel)]="activo">
+        <label for="activo" class="form-check-label">Curso activo</label>
+      </div>
+
+      <button class="btn btn-primary w-100" type="submit" [disabled]="cursoForm.invalid">
+        Agregar curso
+      </button>
+    </form>
+  </div>
+</section>
